@@ -1,0 +1,18 @@
+zone_id  = "b4892357c9dfdfc3220747821fce2b41" // "mydormroom.dpdns.org"
+ssl_mode = "full"                             // off, flexible, full, strict
+ip       = "35.212.172.241"
+
+subdomain_map = {
+  server      = false
+  facefusion  = true
+  gitlab      = true
+  minio       = true
+  vscode      = true
+  jupyter     = true
+  open-webui  = true
+  dashboard   = true
+  argocd      = true
+  grafana     = true
+  adminer     = true
+  vscode-qiao = true
+}
