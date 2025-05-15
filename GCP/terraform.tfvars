@@ -1,0 +1,13 @@
+credentials_file = "key.json"
+project_id       = "peak-segment-413917"
+region           = "us-central1"
+zone             = "us-central1-a"
+instance_name    = "free-tier-vm"
+machine_type     = "e2-micro"
+image            = "debian-cloud/debian-11"
+boot_disk_type   = "pd-standard"
+boot_disk_size   = 10
+network          = "default"
+tags             = ["free-tier"]
+ssh_user         = "a5822358"
+public_key_path  = "~/.ssh/id_rsa.pub"
