@@ -9,4 +9,5 @@ GCP/terraform.tfstate.backup
 GCP/terraform.tfstate
 GCP/.terraform.lock.hcl
 Ansible/.env
+NO-IP/.env
 

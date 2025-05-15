@@ -4,6 +4,12 @@
 TF_VAR_cloudflare_api_token=
 ```
 
+```bash
+set -a
+source .env
+set +a
+```
+
 # ansible
 
 ```bash
@@ -23,4 +29,17 @@ frps_dashboard_password:
 ```bash
 gcloud iam service-accounts keys create key.json --iam-account=terraform@peak-segment-413917.iam.gserviceaccount.com
 cloudshell download key.json
+```
+
+# NO-IP
+
+```bash
+set -a
+source .env
+set +a
+```
+
+```env
+NOIP_USER=
+NOIP_PASS=
 ```
