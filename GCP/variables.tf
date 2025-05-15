@@ -9,33 +9,15 @@ variable "project_id" {
 }
 
 variable "region" {
-  description = "GCP region"
+  description = "Default GCP region for regional resources"
   type        = string
   default     = "us-central1"
 }
 
-variable "zone" {
-  description = "GCP zone"
+variable "network" {
+  description = "VPC network"
   type        = string
-  default     = "us-central1-a"
-}
-
-variable "instance_name" {
-  description = "VM name"
-  type        = string
-  default     = "free-tier-vm"
-}
-
-variable "machine_type" {
-  description = "Machine type"
-  type        = string
-  default     = "e2-micro"
-}
-
-variable "image" {
-  description = "Boot disk image"
-  type        = string
-  default     = "debian-cloud/debian-11"
+  default     = "default"
 }
 
 variable "boot_disk_type" {
@@ -50,24 +32,33 @@ variable "boot_disk_size" {
   default     = 10
 }
 
-variable "network" {
-  description = "Network"
+variable "image" {
+  description = "Boot disk image"
   type        = string
-  default     = "default"
+  default     = "debian-cloud/debian-11"
 }
 
 variable "tags" {
-  description = "Tags"
+  description = "Network tags"
   type        = list(string)
   default     = ["free-tier"]
 }
 
 variable "ssh_user" {
-  description = "Username to use for SSH access"
+  description = "SSH username"
   type        = string
 }
 
 variable "public_key_path" {
   description = "Path to SSH public key"
   type        = string
+}
+
+variable "instances" {
+  description = "Map of VM configurations"
+  type = map(object({
+    name         = string
+    machine_type = string
+    zone         = string
+  }))
 }

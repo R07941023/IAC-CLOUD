@@ -1,6 +1,6 @@
 zone_id  = "b4892357c9dfdfc3220747821fce2b41" // "mydormroom.dpdns.org"
 ssl_mode = "full"                             // off, flexible, full, strict
-ip       = "34.55.41.46"
+ip       = "104.154.138.196"
 
 subdomain_map = {
   server      = false
