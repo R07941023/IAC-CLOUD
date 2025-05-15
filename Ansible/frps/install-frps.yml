@@ -1,0 +1,91 @@
+---
+- name: Install and configure frps on GCP Debian VM
+  hosts: gcp
+  become: yes
+  vars_files:
+    - ../.env
+  vars:
+    frp_version: "0.62.0"
+    frp_download_url: "https://github.com/fatedier/frp/releases/download/v{{ frp_version }}/frp_{{ frp_version }}_linux_amd64.tar.gz"
+    frp_install_dir: "/opt/frp"
+    frps_config_path: "/opt/frp/frps.toml"
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install dependencies
+      apt:
+        name:
+          - wget
+          - unzip
+        state: present
+
+    - name: Download frp release archive
+      get_url:
+        url: "{{ frp_download_url }}"
+        dest: "/tmp/frp.tar.gz"
+        mode: "0644"
+
+    - name: Extract frp archive
+      unarchive:
+        src: "/tmp/frp.tar.gz"
+        dest: "/opt/"
+        remote_src: yes
+
+    - name: Rename extracted folder to /opt/frp if not exists
+      command: mv "/opt/frp_{{ frp_version }}_linux_amd64" "{{ frp_install_dir }}"
+      args:
+        removes: "/opt/frp_{{ frp_version }}_linux_amd64"
+        creates: "{{ frp_install_dir }}"
+
+    - name: Create frps.toml config file
+      copy:
+        dest: "{{ frps_config_path }}"
+        content: |
+          # server
+          bindAddr = "0.0.0.0"
+          bindPort = 7000
+          vhostHTTPSPort = 443
+          vhostHTTPPort = 80
+
+          # token
+          auth.method = "token"
+          auth.token = "{{ frps_token }}"
+
+          # dashboard
+          webServer.addr = "0.0.0.0"
+          webServer.port = 7500
+          webServer.user = "{{ frps_dashboard_user }}"
+          webServer.password = "{{ frps_dashboard_password }}"
+      notify: restart frps
+
+    - name: Create systemd service file for frps
+      copy:
+        dest: /etc/systemd/system/frps.service
+        content: |
+          [Unit]
+          Description=frp server service
+          After=network.target
+
+          [Service]
+          Type=simple
+          ExecStart={{ frp_install_dir }}/frps -c {{ frps_config_path }}
+          Restart=on-failure
+
+          [Install]
+          WantedBy=multi-user.target
+      notify: restart frps
+
+    - name: Enable and start frps service
+      systemd:
+        name: frps
+        enabled: yes
+        state: started
+
+  handlers:
+    - name: restart frps
+      systemd:
+        name: frps
+        state: restarted
