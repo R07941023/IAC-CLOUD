@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export IP="34.55.41.46"
+export IP="104.154.138.196"
 hosts=(
   "gitlab-mydormroom.ddns.net"
   "minio-mydormroom.ddns.net"
