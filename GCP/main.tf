@@ -1,7 +1,8 @@
-resource "google_compute_instance" "free_vm" {
-  name         = var.instance_name
-  machine_type = var.machine_type
-  zone         = var.zone
+resource "google_compute_instance" "vm" {
+  for_each     = var.instances
+  name         = each.value.name
+  machine_type = each.value.machine_type
+  zone         = each.value.zone
 
   boot_disk {
     initialize_params {
@@ -13,7 +14,7 @@ resource "google_compute_instance" "free_vm" {
 
   network_interface {
     network = var.network
-    access_config {} # apply public ip
+    access_config {} # public IP
   }
 
   metadata = {
