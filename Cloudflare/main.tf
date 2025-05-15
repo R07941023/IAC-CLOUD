@@ -1,4 +1,7 @@
 provider "cloudflare" {
+  // zone -> zone setting -> edit
+  // zone -> zone -> edit
+  // zone -> DNS -> edit
   api_token = var.cloudflare_api_token
 }
 
