@@ -1,7 +1,12 @@
-.env
+Cloudflare/.env
 Cloudflare/.terraform
 Cloudflare/terraform.tfstate.backup
 Cloudflare/terraform.tfstate
 Cloudflare/.terraform.lock.hcl
+GCP/key.json
+GCP/.terraform
+GCP/terraform.tfstate.backup
+GCP/terraform.tfstate
+GCP/.terraform.lock.hcl
 
 
