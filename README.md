@@ -1,5 +1,9 @@
 # Cloudflare
 
+# Architecture
+
+![architecture](./images/architecture.jpg) 沒有顯示出來
+
 ```env
 TF_VAR_cloudflare_api_token=
 ```
