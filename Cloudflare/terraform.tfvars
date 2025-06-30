@@ -15,4 +15,6 @@ subdomain_map = {
   grafana     = true
   adminer     = true
   vscode-qiao = true
+  vscode-dev = true
+  vscode-docker = true
 }
