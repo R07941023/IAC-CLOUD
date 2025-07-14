@@ -18,4 +18,5 @@ subdomain_map = {
   vscode-dev = true
   vscode-docker = true
   n8n = true
+  redis-commander = true
 }
