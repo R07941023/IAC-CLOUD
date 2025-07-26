@@ -7,6 +7,7 @@ subdomain_map = {
   facefusion  = true
   gitlab      = true
   minio       = true
+  mongo-express = true
   vscode      = true
   jupyter     = true
   open-webui  = true
