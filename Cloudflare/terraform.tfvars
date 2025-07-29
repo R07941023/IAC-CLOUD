@@ -21,4 +21,5 @@ subdomain_map = {
   n8n = true
   n8n-dev = true
   redis-commander = true
+  prometheus = true
 }
