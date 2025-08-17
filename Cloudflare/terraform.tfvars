@@ -23,4 +23,6 @@ subdomain_map = {
   redis-commander = true
   prometheus = true
   keycloak = true
+  microservice-template = true
+  konga = true
 }
