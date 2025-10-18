@@ -25,4 +25,5 @@ subdomain_map = {
   keycloak = true
   microservice-template = true
   konga = true
+  kafka-ui = true
 }
