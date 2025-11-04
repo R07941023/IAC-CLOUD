@@ -26,4 +26,6 @@ subdomain_map = {
   microservice-template = true
   konga = true
   kafka-ui = true
+  kiali = true
+  jaeger = true
 }
