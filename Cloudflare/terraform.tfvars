@@ -28,4 +28,5 @@ subdomain_map = {
   kafka-ui = true
   kiali = true
   jaeger = true
+  cassandra-web = true
 }
