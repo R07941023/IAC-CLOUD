@@ -29,4 +29,5 @@ subdomain_map = {
   kiali = true
   jaeger = true
   cassandra-web = true
+  kibana = true
 }
