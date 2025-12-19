@@ -30,4 +30,5 @@ subdomain_map = {
   jaeger = true
   cassandra-web = true
   kibana = true
+  langfuse = true
 }
