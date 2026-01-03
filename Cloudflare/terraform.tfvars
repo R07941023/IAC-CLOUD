@@ -32,4 +32,5 @@ subdomain_map = {
   kibana = true
   langfuse = true
   litellm = true
+  mcp-context-forge=true
 }
