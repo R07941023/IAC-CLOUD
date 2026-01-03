@@ -31,4 +31,5 @@ subdomain_map = {
   cassandra-web = true
   kibana = true
   langfuse = true
+  litellm = true
 }
