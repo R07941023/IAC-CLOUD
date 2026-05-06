@@ -33,4 +33,5 @@ subdomain_map = {
   langfuse = true
   litellm = true
   mcp-context-forge=true
+  neo4j=true
 }
